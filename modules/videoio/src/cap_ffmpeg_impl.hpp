@@ -1467,12 +1467,9 @@ bool CvCapture_FFMPEG::retrieveFrame(int, unsigned char** data, int* step, int* 
     *height = frame.height;
     *cn = frame.cn;
 
-#if USE_AV_HW_CODECS
-    if (sw_picture != picture)
-    {
+    if (sw_picture != picture) {
         av_frame_unref(sw_picture);
     }
-#endif
     return true;
 }
 
